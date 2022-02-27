@@ -18,7 +18,7 @@ export class Storage {
   async save(data) {
     const id = this.#generateId();
     const key = `${this.table}-${id}`;
-
+    
     const newData = {
       id,
       ...data,
@@ -28,9 +28,19 @@ export class Storage {
     return data;
   }
 
-  async findOne(id) {}
+  async findOne(id) {
+    return JSON.parse(this.#storage.getItem(`${this.table}-${id}`));
+  }
 
-  async findAll() {}
+  async findAll() {
+    return Object.entries(this.#storage)
+        .filter(([entryKey]) => (
+          entryKey.startsWith(this.table)
+        ))
+        .map(([ _, entryValue ]) => (
+          JSON.parse(entryValue)
+        ))
+  }
 
   async findOneAndUpdate(id, data) {}
 

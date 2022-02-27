@@ -11,19 +11,42 @@
     import { Storage } from './src/libs/Storage.js'
 
     const usuarioStorage = new Storage('usuario');
+    const ingredienteStorage = new Storage('ingrediente');
 
-    usuarioStorage.save({
-      nome: 'Teshima',
-      email: 'teshima@jsraiz.com',
-      foto: 'teshima.jpg'
-    })
+    // usuarioStorage.save({
+    //   nome: 'Teshima',
+    //   email: 'teshima@jsraiz.com',
+    //   foto: 'teshima.jpg'
+    // })
 
-    usuarioStorage.save({
-      nome: 'José',
-      email: 'jose@jsraiz.com',
-      foto: 'jose.jpg'
-    })
+    // usuarioStorage.save({
+    //   nome: 'José',
+    //   email: 'jose@jsraiz.com',
+    //   foto: 'jose.jpg'
+    // })
 
+    // ingredienteStorage.save({
+    //   nome: 'Tomate'
+    // })
+
+    // ingredienteStorage.save({
+    //   nome: 'Frango'
+    // })
+
+    // ingredienteStorage.save({
+    //   nome: 'Cebolinha'
+    // })
+
+    // const usuarioEncontrado = await usuarioStorage.findOne('65ef20dc-dd5ba8c3');
+    // console.log(usuarioEncontrado);
+
+    const usuariosAll = await usuarioStorage.findAll();
+    //console.table(usuariosAll)
+
+
+    const todosIngredientes = await ingredienteStorage.findAll();
+
+    console.table(todosIngredientes);
   </script>
 </body>
 </html>

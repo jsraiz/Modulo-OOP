@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OO | JS Raiz</title>
+</head>
+<body>
+  <script type="module">
+    import { Storage } from './src/libs/Storage.js'
+
+    const usuarioStorage = new Storage('usuario');
+
+    usuarioStorage.save({
+      nome: 'Teshima',
+      email: 'teshima@jsraiz.com',
+      foto: 'teshima.jpg'
+    })
+
+    usuarioStorage.save({
+      nome: 'José',
+      email: 'jose@jsraiz.com',
+      foto: 'jose.jpg'
+    })
+
+  </script>
+</body>
+</html>

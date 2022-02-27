@@ -44,9 +44,13 @@
     //console.table(usuariosAll)
 
 
-    const todosIngredientes = await ingredienteStorage.findAll();
+    // const todosIngredientes = await ingredienteStorage.findAll();
 
-    console.table(todosIngredientes);
+    await ingredienteStorage.findOneAndUpdate('2f90cb11-9a283097', {
+      descricao: 'Ervilha da boa'
+    })
+
+    //console.table(todosIngredientes);
   </script>
 </body>
 </html>

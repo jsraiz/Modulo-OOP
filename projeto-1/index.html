@@ -46,9 +46,11 @@
 
     // const todosIngredientes = await ingredienteStorage.findAll();
 
-    await ingredienteStorage.findOneAndUpdate('2f90cb11-9a283097', {
-      descricao: 'Ervilha da boa'
-    })
+    // await ingredienteStorage.findOneAndUpdate('2f90cb11-9a283097', {
+    //   descricao: 'Ervilha da boa'
+    // })
+
+    await ingredienteStorage.removeAll();
 
     //console.table(todosIngredientes);
   </script>

@@ -59,9 +59,15 @@ export class Storage {
     return this.findOne(id);
   }
 
-  async remove(id) {}
+  async remove(id) {
+    this.#storage.removeItem(this.#getKey(id));
+    return true;
+  }
 
-  async removeAll() {}
+  async removeAll() {
+    const items = await this.findAll();
+    return Promise.all(items.map(item => this.remove(item.id)))
+  }
 
   #generateId() {
     let gen = () => {

@@ -9,8 +9,10 @@
 <body>
   <script type="module">
     import { User } from './src/entities/User.js';
+    import { Author } from './src/entities/Author.js';
     import { Storage } from './src/libs/Storage.js'
     import { UserRepository } from './src/repositories/UserRepository.js';
+    import { AuthorRepository } from './src/repositories/AuthorRepository.js'
 
 
     // userStorage.save({
@@ -76,7 +78,22 @@
     // const newJoao = await userRepository.update(userJoao);
     // console.log('newJoao', newJoao);
 
-    await userRepository.removeAll();
+    // await userRepository.removeAll();
+
+    // const userJose = await userRepository.getById('9ac5ad64-52185442');
+
+    const authorRepository = new AuthorRepository(Storage);
+
+    // await authorRepository.save(
+    //   new Author({
+    //     recipes: [],
+    //     userId: userJose.id
+    //   })
+    // )
+
+    const author = await authorRepository.getById('b7c205f4-cd387d0c');
+    const userAuthor = await userRepository.getById(author.userId);
+    console.log(author, userAuthor);
   </script>
 </body>
 </html>

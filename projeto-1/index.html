@@ -55,11 +55,11 @@
 
     const userRepository = new UserRepository(Storage);
     
-    const joseUser = await userRepository.save(new User({
-      name: 'José',
-      email: 'jose@jsraiz.com',
-      photo: 'jose.png'
-    }));
+    // const joseUser = await userRepository.save(new User({
+    //   name: 'José',
+    //   email: 'jose@jsraiz.com',
+    //   photo: 'jose.png'
+    // }));
 
     // console.log(await userRepository.getById('0b77b62e-09cb233a'))
 
@@ -75,6 +75,8 @@
 
     // const newJoao = await userRepository.update(userJoao);
     // console.log('newJoao', newJoao);
+
+    await userRepository.removeAll();
   </script>
 </body>
 </html>

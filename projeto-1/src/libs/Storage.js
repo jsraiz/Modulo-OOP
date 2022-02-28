@@ -45,8 +45,6 @@ export class Storage {
   async findOneAndUpdate(id, data) {
     const item = await this.findOne(id);
 
-    console.log('data', data);
-    
     if (!item) {
       throw new Error(`Registro "${id}" não encontrado em ${this.table}`);
     }
@@ -56,9 +54,6 @@ export class Storage {
       ...data,
       id: item.id,
     };
-
-    console.log('newData', newData);
-    console.log('spread data', data, {...data})
 
     this.#storage.setItem(this.#getKey(id), JSON.stringify(newData));
 

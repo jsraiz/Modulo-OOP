@@ -19,8 +19,8 @@ export class Storage {
     const id = this.#generateId();
     
     const newData = {
-      id,
       ...data,
+      id,
     }
 
     this.#storage.setItem(this.#getKey(id), JSON.stringify(newData));

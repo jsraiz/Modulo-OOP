@@ -6,9 +6,9 @@ export class UserRepository {
     this.#lStorage = new Storage('user');
   }
 
-  async save(data) {
-    const user = await this.#lStorage.save(data);
-    return new User(user);
+  async save(user) {
+    const newUser = await this.#lStorage.save(user.toObject());
+    return new User(newUser);
   }
 
   // findOne -> getById

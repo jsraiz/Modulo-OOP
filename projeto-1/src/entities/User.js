@@ -42,4 +42,13 @@ export class User {
   set photo(photo) {
     this.#photo = photo;
   }
+
+  toObject() {
+    return {
+      id: this.id,
+      name: this.name,
+      email: this.email,
+      photo: this.photo
+    }
+  }
 }

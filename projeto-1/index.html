@@ -69,7 +69,7 @@
     const userJoao = await userRepository.getById('db807c74-01d6eef4');
     // console.log(userJoao);
 
-    userJoao.photo = 'new_joao.jpg';
+    userJoao.name = 'João da Silva';
     // console.log(userJoao);
 
     const newJoao = await userRepository.update(userJoao);

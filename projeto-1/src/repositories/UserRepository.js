@@ -31,6 +31,6 @@ export class UserRepository {
 
   // findOneAndUpdate -> update
   async update(user) {
-    return this.#lStorage.findOneAndUpdate(user.id, user);
+    return this.#lStorage.findOneAndUpdate(user.id, user.toObject());
   }
 }

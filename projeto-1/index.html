@@ -57,11 +57,11 @@
 
     const userRepository = new UserRepository(Storage);
     
-    // const joseUser = await userRepository.save(new User({
-    //   name: 'José',
-    //   email: 'jose@jsraiz.com',
-    //   photo: 'jose.png'
-    // }));
+    const joseUser = await userRepository.save(new User({
+      name: 'José',
+      email: 'jose@jsraiz.com',
+      photo: 'jose.png'
+    }));
 
     // console.log(await userRepository.getById('0b77b62e-09cb233a'))
 
@@ -82,7 +82,7 @@
 
     // const userJose = await userRepository.getById('9ac5ad64-52185442');
 
-    const authorRepository = new AuthorRepository(Storage);
+    // const authorRepository = new AuthorRepository(Storage);
 
     // await authorRepository.save(
     //   new Author({
@@ -91,9 +91,10 @@
     //   })
     // )
 
-    const author = await authorRepository.getById('b7c205f4-cd387d0c');
-    const userAuthor = await userRepository.getById(author.userId);
-    console.log(author, userAuthor);
+
+    // await userRepository.remove('bb7b2ca8-9f08eb8a');
+
+    
   </script>
 </body>
 </html>

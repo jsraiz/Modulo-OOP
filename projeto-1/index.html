@@ -9,17 +9,16 @@
 <body>
   <script type="module">
     import { Storage } from './src/libs/Storage.js'
+    import { UserRepository } from './src/repositories/UserRepository.js';
 
-    const usuarioStorage = new Storage('usuario');
-    const ingredienteStorage = new Storage('ingrediente');
 
-    // usuarioStorage.save({
+    // userStorage.save({
     //   nome: 'Teshima',
     //   email: 'teshima@jsraiz.com',
     //   foto: 'teshima.jpg'
     // })
 
-    // usuarioStorage.save({
+    // userStorage.save({
     //   nome: 'José',
     //   email: 'jose@jsraiz.com',
     //   foto: 'jose.jpg'
@@ -37,11 +36,10 @@
     //   nome: 'Cebolinha'
     // })
 
-    // const usuarioEncontrado = await usuarioStorage.findOne('65ef20dc-dd5ba8c3');
+    // const usuarioEncontrado = await userStorage.findOne('65ef20dc-dd5ba8c3');
     // console.log(usuarioEncontrado);
 
-    const usuariosAll = await usuarioStorage.findAll();
-    //console.table(usuariosAll)
+    //console.table(usersAll)
 
 
     // const todosIngredientes = await ingredienteStorage.findAll();
@@ -50,9 +48,32 @@
     //   descricao: 'Ervilha da boa'
     // })
 
-    await ingredienteStorage.removeAll();
+    // await ingredienteStorage.removeAll();
 
     //console.table(todosIngredientes);
+
+    const userRepository = new UserRepository(Storage);
+    
+    // const joaquinaUser = await userRepository.save({
+    //   name: 'Joaquina',
+    //   email: 'joaquina@jsraiz.com',
+    //   photo: 'joaquina.png'
+    // });
+
+    // console.log(await userRepository.getById('0b77b62e-09cb233a'))
+
+    // console.log(joaquinaUser);
+
+    // console.log(await userRepository.getAll());
+
+    const userJoao = await userRepository.getById('db807c74-01d6eef4');
+    // console.log(userJoao);
+
+    userJoao.photo = 'new_joao.jpg';
+    // console.log(userJoao);
+
+    const newJoao = await userRepository.update(userJoao);
+    // console.log('newJoao', newJoao);
   </script>
 </body>
 </html>
